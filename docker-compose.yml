@@ -1,0 +1,36 @@
+services:
+    app:
+        build:
+            context: ./app
+            dockerfile: Dockerfile
+        ports:
+            - 8501:8501
+        env_file:
+            - .env
+        volumes:
+            - ./app:/app
+
+
+
+
+    # chroma:
+    #   image: chromadb/chroma:0.5.21
+    #   container_name: chroma-db
+    #   ports: 
+    #     - 8000:8000
+    #   volumes:
+    #     - chroma_data:/chroma/chroma
+    #   healthcheck:
+    #     test: ["CMD-SHELL", "pwd"]
+    #     interval: 10s
+    #     timeout: 5s
+    #     retries: 5
+
+
+volumes:
+    chroma_data:
+        driver: local
+
+networks:
+    default:
+        driver: bridge

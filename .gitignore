@@ -1,0 +1,5 @@
+.env
+.venv/
+app/data/
+*pyc
+app/chroma_db/
